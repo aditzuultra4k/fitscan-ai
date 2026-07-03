@@ -18,11 +18,10 @@ import SettingsScreen from "@/app/settings";
 import WaterTrackerScreen from "@/app/water";
 import WorkoutTrackerScreen from "@/app/workouts";
 import ExerciseLibraryScreen from "@/app/workouts/library";
-import { useSegments } from "expo-router";
 
 export default function PublicBaseRoute() {
-  const segments = useSegments().filter((segment) => segment !== "fitscan-ai");
-  const route = segments.join("/");
+  const pathname = typeof window === "undefined" ? "" : window.location.pathname;
+  const route = pathname.replace(/^\/fitscan-ai\/?/, "").replace(/^\/+|\/+$/g, "");
 
   switch (route) {
     case "":
