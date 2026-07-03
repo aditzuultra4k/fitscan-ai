@@ -5,6 +5,7 @@ import { Card } from "@/components/Card";
 import { Header } from "@/components/Header";
 import { Screen } from "@/components/Screen";
 import { colors, radius, spacing } from "@/constants/theme";
+import { appHref } from "@/utils/navigation";
 
 export default function SignUpScreen() {
   return (
@@ -14,7 +15,7 @@ export default function SignUpScreen() {
         <TextInput placeholder="Name" placeholderTextColor={colors.textSubtle} style={styles.input} />
         <TextInput placeholder="Email" placeholderTextColor={colors.textSubtle} style={styles.input} autoCapitalize="none" keyboardType="email-address" />
         <TextInput placeholder="Password" placeholderTextColor={colors.textSubtle} style={styles.input} secureTextEntry />
-        <Button title="Create account" icon="person-add-outline" onPress={() => router.replace("/dashboard")} />
+        <Button title="Create account" icon="person-add-outline" onPress={() => router.replace(appHref("/dashboard") as never)} />
       </Card>
     </Screen>
   );

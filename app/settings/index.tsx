@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Screen } from "@/components/Screen";
 import { Text } from "@/components/Text";
 import { colors, spacing } from "@/constants/theme";
+import { appHref } from "@/utils/navigation";
 
 const rows = ["Push reminders", "Meal scan confirmations", "Workout rest timer", "Weekly report"];
 
@@ -27,7 +28,7 @@ export default function SettingsScreen() {
           <Text variant="subtitle">Privacy Policy</Text>
           <Text muted>Review data, camera, AI estimate, and Firebase handling.</Text>
         </View>
-        <Button title="Open" variant="secondary" icon="document-text-outline" onPress={() => router.push("/privacy")} />
+        <Button title="Open" variant="secondary" icon="document-text-outline" onPress={() => router.push(appHref("/privacy") as never)} />
       </Card>
     </Screen>
   );

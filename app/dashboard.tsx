@@ -10,6 +10,7 @@ import { ProgressRing } from "@/components/ProgressRing";
 import { Screen } from "@/components/Screen";
 import { Text } from "@/components/Text";
 import { colors, spacing } from "@/constants/theme";
+import { appHref } from "@/utils/navigation";
 import { dailyGoal, weeklyCalories } from "@/data/mock";
 import { useMeals } from "@/services/mealStore";
 import { MealType } from "@/types";
@@ -45,7 +46,7 @@ export default function DashboardScreen() {
       <Card style={styles.cardGap}>
         <View style={styles.cardTitleRow}>
           <Text variant="subtitle">Meals today</Text>
-          <Pressable onPress={() => router.push("/nutrition")}>
+          <Pressable onPress={() => router.push(appHref("/nutrition") as never)}>
             <Text variant="caption" style={{ color: colors.orange }}>Add food</Text>
           </Pressable>
         </View>
@@ -54,14 +55,14 @@ export default function DashboardScreen() {
           return (
             <View key={mealType} style={styles.mealSummaryRow}>
               <Text>{mealType}</Text>
-              <Text variant="caption" muted>{mealTotal.calories} cal Â· {mealTotal.protein}P {mealTotal.carbs}C {mealTotal.fats}F</Text>
+              <Text variant="caption" muted>{mealTotal.calories} cal · {mealTotal.protein}P {mealTotal.carbs}C {mealTotal.fats}F</Text>
             </View>
           );
         })}
       </Card>
       <View style={styles.grid}>
         {shortcuts.map((item) => (
-          <Pressable key={item.title} style={styles.shortcut} onPress={() => router.push(item.href)}>
+          <Pressable key={item.title} style={styles.shortcut} onPress={() => router.push(appHref(item.href) as never)}>
             <Ionicons name={item.icon} size={22} color={colors.orange} />
             <Text variant="caption">{item.title}</Text>
           </Pressable>

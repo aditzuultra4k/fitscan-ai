@@ -6,6 +6,7 @@ import { Card } from "@/components/Card";
 import { Screen } from "@/components/Screen";
 import { Text } from "@/components/Text";
 import { colors, radius, spacing } from "@/constants/theme";
+import { appHref } from "@/utils/navigation";
 
 export default function OnboardingScreen() {
   return (
@@ -25,8 +26,8 @@ export default function OnboardingScreen() {
         <Text muted>
           AI food estimation, barcode logging, workouts, photos, weight trends, streaks, and coaching all live in one quiet daily dashboard.
         </Text>
-        <Button title="Get started" icon="arrow-forward" onPress={() => router.push("/auth/login")} />
-        <Button title="Preview dashboard" variant="secondary" icon="phone-portrait-outline" onPress={() => router.replace("/dashboard")} />
+        <Button title="Get started" icon="arrow-forward" onPress={() => router.push(appHref("/auth/login") as never)} />
+        <Button title="Preview dashboard" variant="secondary" icon="phone-portrait-outline" onPress={() => router.replace(appHref("/dashboard") as never)} />
       </Card>
     </Screen>
   );

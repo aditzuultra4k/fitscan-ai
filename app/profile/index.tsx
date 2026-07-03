@@ -8,6 +8,7 @@ import { MetricCard } from "@/components/MetricCard";
 import { Screen } from "@/components/Screen";
 import { Text } from "@/components/Text";
 import { colors, spacing } from "@/constants/theme";
+import { appHref } from "@/utils/navigation";
 
 export default function ProfileScreen() {
   return (
@@ -19,16 +20,16 @@ export default function ProfileScreen() {
         </View>
         <View style={{ flex: 1 }}>
           <Text variant="subtitle">Adrian</Text>
-          <Text muted>Cutting phase Â· 184 cm Â· 83.1 kg</Text>
+          <Text muted>Cutting phase · 184 cm · 83.1 kg</Text>
         </View>
       </Card>
       <View style={styles.row}>
         <MetricCard label="Achievements" value={28} accent={colors.yellow} />
         <MetricCard label="Records" value={14} accent={colors.red} />
       </View>
-      <Button title="Settings" variant="secondary" icon="settings-outline" onPress={() => router.push("/settings")} />
-      <Button title="Privacy Policy" variant="secondary" icon="document-text-outline" onPress={() => router.push("/privacy")} />
-      <Button title="Premium" icon="diamond-outline" onPress={() => router.push("/premium")} />
+      <Button title="Settings" variant="secondary" icon="settings-outline" onPress={() => router.push(appHref("/settings") as never)} />
+      <Button title="Privacy Policy" variant="secondary" icon="document-text-outline" onPress={() => router.push(appHref("/privacy") as never)} />
+      <Button title="Premium" icon="diamond-outline" onPress={() => router.push(appHref("/premium") as never)} />
     </Screen>
   );
 }

@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Screen } from "@/components/Screen";
 import { Text } from "@/components/Text";
 import { colors, radius, spacing } from "@/constants/theme";
+import { appHref } from "@/utils/navigation";
 import { firebaseReady } from "@/services/firebase";
 
 export default function LoginScreen() {
@@ -15,8 +16,8 @@ export default function LoginScreen() {
       <Card style={styles.form}>
         <TextInput placeholder="Email" placeholderTextColor={colors.textSubtle} style={styles.input} autoCapitalize="none" keyboardType="email-address" />
         <TextInput placeholder="Password" placeholderTextColor={colors.textSubtle} style={styles.input} secureTextEntry />
-        <Button title="Log in" icon="log-in-outline" onPress={() => router.replace("/dashboard")} />
-        <Button title="Create account" variant="ghost" onPress={() => router.push("/auth/signup")} />
+        <Button title="Log in" icon="log-in-outline" onPress={() => router.replace(appHref("/dashboard") as never)} />
+        <Button title="Create account" variant="ghost" onPress={() => router.push(appHref("/auth/signup") as never)} />
       </Card>
       <Card>
         <Text variant="caption" muted>
