@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "FitScan AI",
+    "slug": "fitscan-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "fitscanai",
+    "userInterfaceStyle": "dark",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fitscan.ai",
+      "infoPlist": {
+        "NSCameraUsageDescription": "FitScan AI uses your camera to scan meals, barcodes, and progress photos.",
+        "NSPhotoLibraryUsageDescription": "FitScan AI saves and imports progress photos."
+      }
+    },
+    "android": {
+      "package": "com.fitscan.ai",
+      "permissions": ["CAMERA", "POST_NOTIFICATIONS"]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-camera",
+      "expo-notifications",
+      "expo-image-picker"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
